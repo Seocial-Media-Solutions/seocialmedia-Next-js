@@ -61,7 +61,8 @@ export default async function sitemap() {
     "/blog/ecommerce-website-cost-india",
     "/blog/digital-marketing-agency-for-startups-jaipur-seocial-media",
     "/blog/best-it-company-jaipur-software-web-digital-marketing",
-    "/blog/seo-vs-google-ads-which-is-better-jaipur"
+    "/blog/seo-vs-google-ads-which-is-better-jaipur",
+    "/blog/proven-seo-tips-improve-website-ranking-jaipur"
   ].map((post) => ({
     url: `${URL}${post}`,
     lastModified: new Date().toISOString(),
