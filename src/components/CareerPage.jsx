@@ -8,6 +8,7 @@ import {
   MapPin,
   ExternalLink,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const CareerPage = () => {
   const positions = [
@@ -141,10 +142,18 @@ const CareerPage = () => {
     setTimeout(() => setFormSuccess(false), 3000);
   };
 
-  const ContactUs = ({ onClose }) => {
+  const ContactUs = ({ onClose, formData, handleInputChange, handlePhoneKeyPress, handleSubmit, errors }) => {
+    const constraintsRef = useRef(null);
+
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
+      <div ref={constraintsRef} className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
+        <motion.div
+          drag
+          dragMomentum={false}
+          dragConstraints={constraintsRef}
+          dragElastic={0.1}
+          className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative pointer-events-auto cursor-move"
+        >
           <button
             onClick={onClose}
             className="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-2xl"
@@ -152,7 +161,7 @@ const CareerPage = () => {
             ✕
           </button>
           <h1 className="text-2xl font-bold text-center mb-4">Contact Us</h1>
-          <div className="space-y-4">
+          <div className="space-y-4" onPointerDown={(e) => e.stopPropagation()}>
             <div>
               <label htmlFor="name" className="block text-gray-700 mb-1">
                 Name
@@ -237,7 +246,7 @@ const CareerPage = () => {
               Send
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     );
   };
@@ -308,7 +317,16 @@ const CareerPage = () => {
         </div>
       </section>
 
-      {showForm && <ContactUs onClose={() => setShowForm(false)} />}
+      {showForm && (
+        <ContactUs
+          onClose={() => setShowForm(false)}
+          formData={formData}
+          handleInputChange={handleInputChange}
+          handlePhoneKeyPress={handlePhoneKeyPress}
+          handleSubmit={handleSubmit}
+          errors={errors}
+        />
+      )}
       {formSuccess && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-md shadow-lg z-50">
           Thank you for contacting us. We will get back to you shortly.

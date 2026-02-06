@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight, Star, Building2, Briefcase } from 'lucide-react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const reviews = [
     {
@@ -27,28 +27,21 @@ const reviews = [
     }
 ];
 
-const responsive = {
-    superLargeDesktop: {
-        breakpoint: { max: 4000, min: 1024 },
-        items: 1
-    },
-    desktop: {
-        breakpoint: { max: 1024, min: 768 },
-        items: 1
-    },
-    tablet: {
-        breakpoint: { max: 768, min: 464 },
-        items: 1
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1
-    }
-};
+
 
 const Testimonial = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
+
+    const scrollPrev = React.useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = React.useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
     const ReviewCard = ({ review }) => (
-        <div className="flex flex-col items-center bg-transparent rounded-2xl p-4 sm:p-8 mx-2 sm:mx-4 my-4 sm:my-8">
+        <div className="flex flex-col items-center bg-transparent rounded-2xl p-4 sm:p-8 mx-2 sm:mx-4 my-4 sm:my-8 select-none">
             <div className="mb-4 sm:mb-6 w-full">
                 <div className="flex items-center gap-2 mb-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
@@ -97,31 +90,34 @@ const Testimonial = () => {
                     </h2>
                     <div className="w-12 sm:w-16 h-1 bg-blue-600 mx-auto rounded-full" />
                 </div>
-                
-                <Carousel
-                    responsive={responsive}
-                    infinite={true}
-                    autoPlay={true}
-                    autoPlaySpeed={5000}
-                    showDots={true}
-                    arrows={true}
-                    customLeftArrow={
-                        <button className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-all z-10">
-                            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
-                        </button>
-                    }
-                    customRightArrow={
-                        <button className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-all z-10">
-                            <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
-                        </button>
-                    }
-                    dotListClass="custom-dot-list-style"
-                    itemClass="carousel-item-padding-40-px"
-                >
-                    {reviews.map((review) => (
-                        <ReviewCard key={review.id} review={review} />
-                    ))}
-                </Carousel>
+
+                <div className="relative group">
+                    <div className="overflow-hidden" ref={emblaRef}>
+                        <div className="flex">
+                            {reviews.map((review) => (
+                                <div className="flex-[0_0_100%] min-w-0" key={review.id}>
+                                    <ReviewCard review={review} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={scrollPrev}
+                        className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-all z-10 hidden group-hover:block"
+                        aria-label="Previous slide"
+                    >
+                        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
+                    </button>
+
+                    <button
+                        onClick={scrollNext}
+                        className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-all z-10 hidden group-hover:block"
+                        aria-label="Next slide"
+                    >
+                        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
+                    </button>
+                </div>
             </div>
         </div>
     );
