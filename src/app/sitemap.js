@@ -64,7 +64,8 @@ export default async function sitemap() {
     "/blog/seo-vs-google-ads-which-is-better-jaipur",
     "/blog/proven-seo-tips-improve-website-ranking-jaipur",
     "/blog/how-digital-marketing-helps-doctors-get-more-patients",
-    "/blog/latest-google-seo-updates-2026-explained"
+    "/blog/latest-google-seo-updates-2026-explained",
+    "/blog/impact-of-ai-on-seo-what-businesses-should-know"
   ].map((post) => ({
     url: `${URL}${post}`,
     lastModified: new Date().toISOString(),
