@@ -319,24 +319,23 @@ const BlogListClient = () => {
             </article>
           ))}
         </div>
-
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-16 flex justify-center">
-            <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white border-opacity-20">
-              <nav className="flex items-center space-x-2">
+          <div className="mt-12 flex justify-center px-2">
+            <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-lg border border-white border-opacity-20 w-full max-w-lg">
+              <nav className="flex items-center justify-between flex-wrap gap-2">
+
                 {/* Previous Button */}
                 <button
                   onClick={goToPrevious}
                   disabled={currentPage === 1}
-                  className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                    currentPage === 1
+                  className={`flex items-center px-2 sm:px-4 py-2 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium transition-all duration-300 ${currentPage === 1
                       ? "text-gray-400 cursor-not-allowed"
                       : "text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                  }`}
+                    }`}
                 >
                   <svg
-                    className="w-4 h-4 mr-2"
+                    className="w-4 h-4 mr-1 sm:mr-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -348,23 +347,22 @@ const BlogListClient = () => {
                       d="M15 19l-7-7 7-7"
                     />
                   </svg>
-                  Previous
+                  <span className="hidden sm:inline">Previous</span>
                 </button>
 
                 {/* Page Numbers */}
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center gap-1 overflow-x-auto max-w-[60%] sm:max-w-none scrollbar-hide">
                   {getPageNumbers().map((page, index) => (
                     <React.Fragment key={index}>
                       {page === "..." ? (
-                        <span className="px-3 py-2 text-gray-400">...</span>
+                        <span className="px-2 py-1 text-gray-400 text-sm">...</span>
                       ) : (
                         <button
                           onClick={() => goToPage(page)}
-                          className={`w-10 h-10 rounded-xl font-medium transition-all duration-300 ${
-                            currentPage === page
+                          className={`w-8 h-8 sm:w-10 sm:h-10 text-sm sm:text-base rounded-lg sm:rounded-xl font-medium transition-all duration-300 ${currentPage === page
                               ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                               : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-                          }`}
+                            }`}
                         >
                           {page}
                         </button>
@@ -377,15 +375,14 @@ const BlogListClient = () => {
                 <button
                   onClick={goToNext}
                   disabled={currentPage === totalPages}
-                  className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                    currentPage === totalPages
+                  className={`flex items-center px-2 sm:px-4 py-2 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium transition-all duration-300 ${currentPage === totalPages
                       ? "text-gray-400 cursor-not-allowed"
                       : "text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                  }`}
+                    }`}
                 >
-                  Next
+                  <span className="hidden sm:inline">Next</span>
                   <svg
-                    className="w-4 h-4 ml-2"
+                    className="w-4 h-4 ml-1 sm:ml-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -398,6 +395,7 @@ const BlogListClient = () => {
                     />
                   </svg>
                 </button>
+
               </nav>
             </div>
           </div>
