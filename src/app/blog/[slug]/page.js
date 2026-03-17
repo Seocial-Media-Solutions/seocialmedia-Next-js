@@ -251,7 +251,9 @@ export default async function SingleBlogPage({ params }) {
             </div>
           )}
 
-        
+         <h1 className="text-4xl font-bold bg-[#305424] bg-clip-text text-transparent mb-4">
+          {blog.title}
+          </h1>
           <BlogContent content={blog.content} />
 
           {/* Back button */}
