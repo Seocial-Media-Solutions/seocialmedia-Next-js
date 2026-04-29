@@ -94,7 +94,7 @@ const UnifiedLandingPage = () => {
                         Visit Us
                       </h2>
                       <p className="text-gray-600">
-                       Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
+                        Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
                       </p>
                     </div>
                   </div>
@@ -113,7 +113,7 @@ const UnifiedLandingPage = () => {
                       <div className="bg-blue-100 p-2 rounded-xl">
                         <Mail className="text-blue-600 w-5 h-5" />
                       </div>
-                      <p className="text-gray-600">info@seocialmedia.in</p>
+                      <p className="text-gray-600">seocialmediasolutions@outlook.com</p>
                     </div>
                   </div>
                 </div>

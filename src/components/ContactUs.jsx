@@ -55,12 +55,14 @@ const ContactForm = () => {
       details: "+91 9461677122",
       contact: "+91 8949342270",
       gradient: "from-blue-500 to-cyan-500",
+      link: "tel:+919461677122",
     },
     {
       icon: Mail,
       title: "Email",
-      details: "info@seocialmedia.in",
+      details: "seocialmediasolutions@outlook.com",
       gradient: "from-purple-500 to-pink-500",
+      link: "mailto:seocialmediasolutions@outlook.com",
     },
     {
       icon: MapPin,
@@ -68,6 +70,7 @@ const ContactForm = () => {
       details:
         "Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019",
       gradient: "from-green-500 to-emerald-500",
+      link: "https://maps.google.com/?q=Sagar,+1,+opp.+VS+Medihub,+Nirman+Nagar,+Ranisati+Nagar,+Jaipur,+Rajasthan+302019",
     },
   ];
 
@@ -142,7 +145,7 @@ const ContactForm = () => {
 
   return (
     <>
-      
+
 
       {/* Contact Section */}
       <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
@@ -170,6 +173,7 @@ const ContactForm = () => {
           {/* Contact Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {contactInfo.map((info, index) => (
+
               <motion.div
                 key={index}
                 initial="hidden"
@@ -190,9 +194,29 @@ const ContactForm = () => {
                   <h3 className="text-xl font-semibold text-gray-800">
                     {info.title}
                   </h3>
-                  <p className="mt-2 text-gray-600">{info.details}</p>
+                  {info.link ? (
+                    <a
+                      href={info.link}
+                      target={info.title === "Location" ? "_blank" : undefined}
+                      rel={info.title === "Location" ? "noopener noreferrer" : undefined}
+                      className="mt-2 text-gray-600 hover:text-indigo-600 transition-colors"
+                    >
+                      {info.details}
+                    </a>
+                  ) : (
+                    <p className="mt-2 text-gray-600">{info.details}</p>
+                  )}
                   {info.contact && (
-                    <span className="text-gray-600">{info.contact}</span>
+                    info.title === "Phone" ? (
+                      <a
+                        href={`tel:${info.contact.replace(/\s+/g, '')}`}
+                        className="text-gray-600 hover:text-indigo-600 transition-colors"
+                      >
+                        {info.contact}
+                      </a>
+                    ) : (
+                      <span className="text-gray-600">{info.contact}</span>
+                    )
                   )}
                 </div>
               </motion.div>
