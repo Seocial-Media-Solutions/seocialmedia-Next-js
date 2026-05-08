@@ -94,7 +94,7 @@ const UnifiedLandingPage = () => {
                         Visit Us
                       </h2>
                       <p className="text-gray-600">
-                       Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
+                        Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
                       </p>
                     </div>
                   </div>

@@ -14,21 +14,22 @@ export const Founders = () => {
         "B.Sc. Hospitality & Hotel Administration - IHM Ahmedabad",
       ],
       linkedin: "https://www.linkedin.com/in/mudit-mathur-6b738327/",
-      email: "mudit@company.com",
+      email: "info@seocialmedia.in",
       experience: "12+ Years",
     },
     {
       name: "Kushagra Parashar",
       role: "Co-Founder & CEO",
       image: "/images/founders/kushagra-parasher.jpg",
-      bio: "A tech visionary with a passion for innovation, Kushagra is dedicated to leveraging technology to create impactful solutions for our clients.",
+      bio: "A highly accomplished and results-driven entrepreneur with over 16 years of experience across Pest Control, Digital Marketing, and Technology. Kushagra Parashar brings a strong foundation in Software Engineering and business strategy, combining technical expertise with practical execution to deliver measurable results. Known for driving innovation, optimizing operations, and creating scalable growth strategies, along with extensive experience in managing teams and handling diverse client portfolios, the focus remains on delivering high-impact solutions for businesses across industries, including healthcare and commercial sectors.",
       education: [
-        "Diploma in B.Sc(IT) from NIIT (Software Engineer)",
-        "MBA from Symbiosis",
+        "Bachelor of Science in Information Technology (B.Sc IT)",
+        "Certified in Software Engineering – NIIT Master of Business Administration",
+        "(MBA) – Symbiosis (Specialization: Marketing)",
       ],
       linkedin: "https://www.linkedin.com/in/kushagra-parashar-6550b7385/",
-      email: "cofounder@company.com",
-      experience: "10+ Years",
+      email: "info@seocialmedia.in",
+      experience: "16+ Years",
     },
   ];
 
@@ -71,11 +72,11 @@ export const Founders = () => {
                   <div className="absolute top-10 right-10 w-32 h-32 bg-blue-400 rounded-full blur-2xl animate-pulse"></div>
                   <div className="absolute bottom-10 left-10 w-40 h-40 bg-purple-400 rounded-full blur-2xl animate-pulse delay-300"></div>
                 </div>
-                
+
                 <div className="relative">
                   {/* Rotating gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-                  
+
                   {/* Main image container */}
                   <div className="relative w-96 h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform group-hover:scale-105 transition-transform duration-500">
                     <img
@@ -86,7 +87,7 @@ export const Founders = () => {
                     {/* Gradient overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  
+
                   {/* Experience badge */}
                   <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-xl border-2 border-blue-100">
                     <div className="flex items-center gap-2">

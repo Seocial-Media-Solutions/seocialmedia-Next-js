@@ -25,7 +25,7 @@ const Footer = () => {
   const quickLinks = [
     { name: "SEOcial Media company in Ajmer", href: "/digital-marketing-services-ajmer" },
     { name: "SEOcial Media company in Jaipur", href: "/digital-marketing-services-jaipur" },
-   
+
 
     { name: "Home", href: "/" },
     { name: "About Us", href: "/digital-marketing-company-jaipur" },
@@ -44,7 +44,7 @@ const Footer = () => {
     { name: "Video Editing", href: "/video-editing-company-jaipur" },
     { name: "Our branding strategy", href: "/best-digital-marketing-branding-services-jaipur" },
     { name: "Mobile App Development", href: "/top-app-development-company-jaipur" },
-     
+
   ];
 
   const socialLinks = [
@@ -79,7 +79,7 @@ const Footer = () => {
               className="h-12 w-auto"
             />
             <p className="text-sm leading-relaxed">
-              Empowering businesses with comprehensive digital marketing solutions that drive real growth. 
+              Empowering businesses with comprehensive digital marketing solutions that drive real growth.
               Your trusted partner in the digital transformation journey.
             </p>
             <div className="flex space-x-4">
@@ -141,7 +141,7 @@ const Footer = () => {
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
                 <p className="text-sm">
-                 Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
+                  Sagar, 1, opp. VS Medihub, Nirman Nagar, Ranisati Nagar, Jaipur, Rajasthan 302019
                 </p>
               </div>
               <div className="flex items-center">
